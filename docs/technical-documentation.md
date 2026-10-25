@@ -44,6 +44,8 @@ Existing button, navigation indicator, project card, and project image transitio
 
 The existing responsive breakpoints collapse multi-column layouts for smaller screens. Project filters wrap when needed. Keyboard focus remains visible, buttons are native keyboard-operable controls, filter selection is exposed with `aria-pressed`, and updates use a polite status region. The existing `prefers-reduced-motion: reduce` rule reduces transitions and disables smooth scrolling.
 
+The decorative opening quotation mark in the Skills blockquote is specified with the CSS Unicode escape `\201C` rather than a literal curly-quote character, avoiding encoding-related mojibake in the pseudo-element.
+
 ## Verification performed
 
 The following checks were performed in the integrated browser preview:
@@ -56,6 +58,7 @@ The following checks were performed in the integrated browser preview:
 - The success confirmation styles appeared, and the reduced-motion preference reduced transition duration.
 - Computed styles confirmed the updated transition timing and easing on the existing controls and cards.
 - In the mobile-width preview, the navigation Escape handler closed the open menu, reset `aria-expanded`, and restored focus to the toggle. This behavior was exercised by dispatching a keyboard event in the browser page.
+- The Skills quote pseudo-element was inspected in the browser after changing it to the Unicode escape; computed CSS content rendered as the intended opening quote.
 - The final CSS hover-state additions and the Escape handler passed editor diagnostics and `git diff --check`.
 
 Editor diagnostics reported no errors for the changed HTML, CSS, or JavaScript, and `git diff --check` passed. These were browser and editor checks, not a separate automated test suite.

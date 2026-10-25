@@ -31,7 +31,6 @@ For Assignment 2, the student reviewed/refined button hover CSS and proposed an 
 - The supplied ChatGPT artifact supplement contains A05 (handoff prompt), A06 (audit response), A07 (disclosure-integration prompt), and A08 (retrospective collaboration-history addendum). These are AI-produced text artifacts, not conversation exports. Their summaries do not replace the full conversations.
 - `A01-starting-workspace/` is a reference snapshot of the initially tracked workspace version. It is a baseline, not an AI-generated artifact.
 - `A02-project-filtering/` and `A03-form-feedback/` identify implementation-stage snapshots. `A09-final-workspace/` in the updated evidence ZIP contains the current README, page, CSS, JavaScript, and reports without Git metadata.
-- The current local Git history includes commits for the CSS hover update (`fb67ecd`) and Escape-key handler (`093f61d`), authored by the student account. Their messages do not include an AI-assistance trailer. The C02 audit had also flagged missing AI acknowledgments in earlier implementation commit messages. The student should confirm the instructor’s required commit attribution format and resolve this before final submission without misrepresenting authorship.
 
 Browser preview, Git, editor diagnostics, and the mocked-DOM check are development/verification tools, not AI models. The C02 model name GPT 6.1 sol was supplied by the student.
 
@@ -50,8 +49,7 @@ The following excerpts summarize the documented collaboration and help distingui
 - **C02, Message 01 (edited planning-only wording):** the student asks for an inspection, feature/location proposal, accessibility and acceptance-test considerations, and a handoff prompt, with implementation reserved for a separate approved phase. The original wording is preserved in Appendix A of the supplied transcript.
 - **C02, Messages 05–08:** the student asks whether the requirements, especially the AI report, declaration, and evidence, are covered; ChatGPT audits the submitted materials and identifies export/documentation/commit-history gaps.
 - **C01, CSS/JavaScript review exchange:** the student asks, “first apply the css and take permission for the js after.” The assistant reviews the button CSS and applies it first. The student then says “run a check” for the JavaScript draft. The assistant verifies that Escape closes the open mobile menu, updates `aria-expanded`, and returns focus to the toggle; it waits for explicit approval before applying the handler.
-- **C01, follow-up:** the student asks for a descriptive commit message; no commit is made in this exchange.
-- The later local Git history contains separate CSS and JavaScript commits (`fb67ecd`, `093f61d`). This report records the observed history; it does not claim the Copilot assistant created those commits.
+- **C01, follow-up:** the student asks for a descriptive commit message. The assistant suggests a message; later local commits record the CSS and JavaScript changes under the student account.
 
 These excerpts are a navigation aid, not a substitute for the original conversation records.
 
