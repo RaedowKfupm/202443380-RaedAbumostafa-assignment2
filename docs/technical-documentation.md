@@ -10,6 +10,12 @@ The portfolio is a static single-page site:
 
 There is no framework, package manager, build pipeline, backend, or external API. Images remain local under `assets/images/`.
 
+## Navigation behavior
+
+The mobile navigation button toggles `.is-open` on `.nav-links` and synchronizes its `aria-expanded` state. Selecting a navigation link closes the menu. Pressing Escape while the menu is open also closes it, sets `aria-expanded` to `false`, and returns keyboard focus to `.nav-toggle`. The Escape handler is registered only when the navigation button and link list exist.
+
+The active navigation link is updated from the current scroll position. The footer year is set from the browser’s current year.
+
 ## Project category filtering
 
 The filter controls are inside `#projects`, between its section heading and `.project-grid`. Each existing `.project-card` has a stable `data-category`: `rf-sensing` for WiFi RF Diffusion Model and `computer-vision` for AI Video Captioning.
@@ -32,7 +38,9 @@ When every value passes, the form shows a distinct check-mark confirmation stati
 
 ## Transitions and responsive behavior
 
-The filter buttons follow the existing `.button` interaction with restrained color, border, and position transitions. Existing button, navigation indicator, project card, and project image transitions retain their durations with smoother easing. The Skills & Expertise cards also use a simple hover lift, background, border, and shadow treatment added after a separate user request; this is beyond the original selected animation feature and can be removed if strict feature scope is required.
+The filter buttons follow the existing `.button` interaction with restrained color, border, shadow, and position transitions. Existing buttons lift slightly and gain a soft shadow on hover. Primary buttons switch to near-black, secondary buttons use a darker rust, the contact submit button uses darker rust, and project filter buttons use a light surface with a subtle shadow. The mobile navigation toggle also inverts to a dark background on hover. These hover styles are separate from the JavaScript Escape-key handler and do not animate project filtering itself.
+
+Existing button, navigation indicator, project card, and project image transitions retain their durations with smoother easing. The Skills & Expertise cards also use a simple hover lift, background, border, and shadow treatment added after a separate user request; this is beyond the original selected animation feature and can be removed if strict feature scope is required.
 
 The existing responsive breakpoints collapse multi-column layouts for smaller screens. Project filters wrap when needed. Keyboard focus remains visible, buttons are native keyboard-operable controls, filter selection is exposed with `aria-pressed`, and updates use a polite status region. The existing `prefers-reduced-motion: reduce` rule reduces transitions and disables smooth scrolling.
 
@@ -47,6 +55,8 @@ The following checks were performed in the integrated browser preview:
 - Valid form input displayed the honest confirmation and reset the fields.
 - The success confirmation styles appeared, and the reduced-motion preference reduced transition duration.
 - Computed styles confirmed the updated transition timing and easing on the existing controls and cards.
+- In the mobile-width preview, the navigation Escape handler closed the open menu, reset `aria-expanded`, and restored focus to the toggle. This behavior was exercised by dispatching a keyboard event in the browser page.
+- The final CSS hover-state additions and the Escape handler passed editor diagnostics and `git diff --check`.
 
 Editor diagnostics reported no errors for the changed HTML, CSS, or JavaScript, and `git diff --check` passed. These were browser and editor checks, not a separate automated test suite.
 

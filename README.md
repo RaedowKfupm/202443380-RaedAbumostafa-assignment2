@@ -1,6 +1,6 @@
 # Raed Abumostafa — SWE 363 Assignment 2
 
-A responsive, single-page portfolio extended for KFUPM SWE 363 Assignment 2. The original portfolio content and visual direction are retained, with project category filtering and more accessible client-side contact-form validation added.
+A responsive, single-page portfolio extended for KFUPM SWE 363 Assignment 2. The original portfolio content and visual direction are retained, with project category filtering, more accessible client-side contact-form validation, and keyboard dismissal of the mobile navigation.
 
 ## Run locally
 
@@ -18,7 +18,7 @@ Then open <http://localhost:8000/>.
 |---|---|---|
 | Dynamic Content | Project category filtering | Filter the two existing project cards by All, RF Sensing, or Computer Vision. |
 | Data Handling | Validated contact form with confirmation | Validate trimmed input locally, provide correction feedback, and confirm validation without sending or storing data. |
-| Animation and Transitions | Button hover transitions | Reuse the existing button treatment and apply restrained transitions to project filter buttons. |
+| Animation and Transitions | Button hover transitions | Refine hover treatments for the existing buttons and apply a matching treatment to project filter buttons. |
 | Error Handling and User Feedback | Accessible contact-form validation feedback | Associate field errors with controls, identify invalid fields, focus the first invalid field, and announce the result. |
 
 The Skills & Expertise cards also have a restrained hover treatment, added after a separate request. This is an additional animation beyond the original one-feature scope; remove it if strict adherence to that scope is required.
@@ -27,9 +27,11 @@ The Skills & Expertise cards also have a restrained hover treatment, added after
 
 The starting workspace already had the editorial portfolio layout and palette, the hero and profile image, About / Projects / Skills / Contact sections, two project cards and their expandable details, responsive navigation, active-section indication, and a local contact form with basic validation.
 
-Assignment 2 adds category filters to the existing project cards and improves the existing form’s validation, accessible error associations, focus behavior, and confirmation. Existing project content and images, navigation, disclosures, layout, and form disclosure are retained. Existing button, navigation, card, and image transitions remain; their easing was refined, and the new filter buttons use a matching treatment.
+Assignment 2 adds category filters to the existing project cards, improves the existing form’s validation and accessible feedback, and lets keyboard users close the mobile menu with Escape. Existing project content and images, navigation, disclosures, layout, and form disclosure are retained. Existing transitions remain; their easing and button hover feedback were refined.
 
 The named Assignment 1 archive was not present in the workspace when work began. The implementation and comparison above therefore use the portfolio already present in this workspace as the starting version.
+
+On mobile, open the navigation using its menu button. Press Escape to close it and return focus to that button.
 
 ## Using the interactions
 
@@ -52,7 +54,7 @@ Enter a name of at least two non-space characters, a valid email address, and a 
 
 ## AI-use summary
 
-An AI assistant in VS Code was used to inspect, discuss, and help implement the Assignment 2 interactions and documentation. The student directed the scope, reviewed feature behavior, and requested a later Skills-card hover enhancement. The declaration and report remain for the student to review and confirm. See the [AI-use report](docs/ai-usage-report.md) and [technical documentation](docs/technical-documentation.md).
+Copilot SDK assistance in VS Code supported implementation and review; ChatGPT/Codex supported Assignment 2 planning and an independent evidence review. The student directed the scope and requested review of button CSS and the Escape-key handler. The student confirmed the declaration dated 25 October 2026; the AI report records evidence limitations that still need resolution before submission. See the [AI-use report](docs/ai-usage-report.md) and [technical documentation](docs/technical-documentation.md).
 
 ## Project files
 
