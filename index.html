@@ -271,20 +271,20 @@
             <div class="field-row">
               <div class="form-field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required minlength="2" />
+                <input id="name" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="name-error" aria-invalid="false" />
                 <small class="field-error" id="name-error"></small>
               </div>
 
               <div class="form-field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required />
+                <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" aria-invalid="false" />
                 <small class="field-error" id="email-error"></small>
               </div>
             </div>
 
             <div class="form-field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
+              <textarea id="message" name="message" rows="6" required minlength="10" aria-describedby="message-error" aria-invalid="false"></textarea>
               <small class="field-error" id="message-error"></small>
             </div>
 

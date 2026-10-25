@@ -836,7 +836,12 @@ section {
 .form-field input:focus,
 .form-field textarea:focus {
   border-color: var(--rust);
-  outline: 0;
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 0.2rem solid var(--rust);
+  outline-offset: 0.25rem;
 }
 
 .field-error {
@@ -876,6 +881,36 @@ section {
 .form-status {
   min-height: 1.5rem;
   margin-top: 1rem;
+}
+
+.form-status.is-error {
+  color: #ffb59f;
+}
+
+.form-status.is-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  color: #b8f5d1;
+  border: 1px solid rgba(184, 245, 209, 0.5);
+  border-radius: 0.75rem;
+  background: rgba(184, 245, 209, 0.08);
+  font-weight: 700;
+}
+
+.form-status.is-success::before {
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  place-items: center;
+  color: var(--ink);
+  border-radius: 50%;
+  background: #b8f5d1;
+  content: "✓";
+  font-size: 1rem;
+  font-weight: 900;
 }
 
 .site-footer {

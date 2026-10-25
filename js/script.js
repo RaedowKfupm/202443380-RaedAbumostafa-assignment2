@@ -88,6 +88,7 @@ initializeProjectFilters();
 
 const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
+const fields = ['name', 'email', 'message'];
 
 const setFieldError = (fieldId, message) => {
   const field = document.getElementById(fieldId);
@@ -103,50 +104,74 @@ const setFieldError = (fieldId, message) => {
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+const getFieldError = (fieldId, value) => {
+  if (fieldId === 'name' && value.length < 2) {
+    return 'Enter your name using at least 2 non-space characters.';
+  }
+
+  if (fieldId === 'email' && !isValidEmail(value)) {
+    return 'Enter an email address in the format name@example.com.';
+  }
+
+  if (fieldId === 'message' && value.length < 10) {
+    return 'Write a message using at least 10 non-space characters.';
+  }
+
+  return '';
+};
+
+const clearFormStatus = () => {
+  if (!formStatus) {
+    return;
+  }
+
+  formStatus.textContent = '';
+  formStatus.classList.remove('is-error', 'is-success');
+};
+
 // Validate locally because this static portfolio has no message-delivery backend.
 if (form) {
+  fields.forEach((fieldId) => {
+    const field = document.getElementById(fieldId);
+
+    if (!field) {
+      return;
+    }
+
+    field.addEventListener('input', () => {
+      clearFormStatus();
+
+      if (field.getAttribute('aria-invalid') === 'true') {
+        setFieldError(fieldId, getFieldError(fieldId, field.value.trim()));
+      }
+    });
+  });
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formData = new FormData(form);
-    const name = (formData.get('name') || '').toString().trim();
-    const email = (formData.get('email') || '').toString().trim();
-    const message = (formData.get('message') || '').toString().trim();
+    const invalidFields = fields.filter((fieldId) => {
+      const field = document.getElementById(fieldId);
+      const errorMessage = field ? getFieldError(fieldId, field.value.trim()) : '';
+      setFieldError(fieldId, errorMessage);
+      return Boolean(errorMessage);
+    });
 
-    let isValid = true;
-
-    if (name.length < 2) {
-      setFieldError('name', 'Please enter at least 2 characters.');
-      isValid = false;
-    } else {
-      setFieldError('name', '');
-    }
-
-    if (!isValidEmail(email)) {
-      setFieldError('email', 'Please enter a valid email address.');
-      isValid = false;
-    } else {
-      setFieldError('email', '');
-    }
-
-    if (message.length < 10) {
-      setFieldError('message', 'Please write at least 10 characters.');
-      isValid = false;
-    } else {
-      setFieldError('message', '');
-    }
-
-    if (!isValid) {
+    if (invalidFields.length) {
       if (formStatus) {
-        formStatus.textContent = 'Please fix the highlighted fields and try again.';
-        formStatus.style.color = '#ffb59f';
+        formStatus.textContent = 'Please correct the highlighted fields and try again.';
+        formStatus.classList.remove('is-success');
+        formStatus.classList.add('is-error');
       }
+
+      document.getElementById(invalidFields[0])?.focus();
       return;
     }
 
     if (formStatus) {
-      formStatus.textContent = 'Message looks good. This is a demo form, so no data was sent.';
-      formStatus.style.color = '#b8f5d1';
+      formStatus.textContent = 'Message accepted — all fields passed validation. Nothing was sent or stored.';
+      formStatus.classList.remove('is-error');
+      formStatus.classList.add('is-success');
     }
 
     form.reset();
