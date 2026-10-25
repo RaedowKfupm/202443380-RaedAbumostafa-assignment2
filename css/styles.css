@@ -692,7 +692,7 @@ section {
   top: -2rem;
   left: -0.08em;
   color: var(--rust);
-  content: "“";
+  content: "\201C";
   font-family: var(--font-serif);
   font-size: 9rem;
   line-height: 1;
