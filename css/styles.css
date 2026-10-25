@@ -96,7 +96,7 @@ button {
   color: var(--white);
   background: var(--ink);
   transform: translateY(-180%);
-  transition: transform 160ms ease;
+  transition: transform 160ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .skip-link:focus {
@@ -165,7 +165,7 @@ button {
   content: "";
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 180ms ease;
+  transition: transform 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .nav-links a:hover,
@@ -194,7 +194,7 @@ button {
   height: 0.13rem;
   margin-block: 0.3rem;
   background: currentColor;
-  transition: transform 180ms ease;
+  transition: transform 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .nav-toggle[aria-expanded="true"] span:first-child {
@@ -323,9 +323,9 @@ button {
   text-decoration: none;
   text-transform: uppercase;
   transition:
-    color 180ms ease,
-    background-color 180ms ease,
-    transform 180ms ease;
+    color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    background-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .button:hover {
@@ -504,10 +504,10 @@ section {
   font-weight: 800;
   letter-spacing: 0.06em;
   transition:
-    color 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+    color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    background-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .project-filter-button:hover {
@@ -538,7 +538,7 @@ section {
   grid-template-rows: auto 1fr;
   color: var(--ink);
   border: 1px solid rgba(255, 253, 248, 0.8);
-  transition: transform 200ms ease;
+  transition: transform 200ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .project-card:hover {
@@ -569,7 +569,7 @@ section {
 .project-media img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  transition: transform 500ms ease;
+  transition: transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .project-card:hover .project-media img {
