@@ -701,8 +701,22 @@ section {
 }
 
 .skill-group {
+  padding: 1rem;
+  border: 1px solid transparent;
   padding-top: 1rem;
   border-top: 0.18rem solid var(--ink);
+  transition:
+    background-color 200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.skill-group:hover {
+  border-top-color: var(--rust);
+  background: var(--white);
+  box-shadow: 0 0.6rem 1.5rem rgba(29, 26, 23, 0.08);
+  transform: translateY(-0.2rem);
 }
 
 .skill-index {
