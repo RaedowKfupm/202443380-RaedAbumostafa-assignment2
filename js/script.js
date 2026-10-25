@@ -50,6 +50,42 @@ if (navAnchors.length) {
   window.addEventListener('scroll', updateActiveLink, { passive: true });
 }
 
+const initializeProjectFilters = () => {
+  const filters = document.querySelector('.project-filters');
+  const filterButtons = Array.from(document.querySelectorAll('.project-filter-button'));
+  const projectCards = Array.from(document.querySelectorAll('.project-card[data-category]'));
+  const filterStatus = document.querySelector('.project-filter-status');
+
+  if (!filters || !filterButtons.length || !projectCards.length || !filterStatus) {
+    return;
+  }
+
+  const updateProjects = (selectedCategory) => {
+    let visibleCount = 0;
+
+    projectCards.forEach((card) => {
+      const isVisible = selectedCategory === 'all' || card.dataset.category === selectedCategory;
+      card.hidden = !isVisible;
+      visibleCount += Number(isVisible);
+    });
+
+    filterButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.filter === selectedCategory));
+    });
+
+    filterStatus.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'project' : 'projects'}.`;
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => updateProjects(button.dataset.filter));
+  });
+
+  filters.hidden = false;
+  updateProjects('all');
+};
+
+initializeProjectFilters();
+
 const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 

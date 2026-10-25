@@ -471,6 +471,62 @@ section {
   color: rgba(255, 253, 248, 0.7);
 }
 
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: -2.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-filters[hidden],
+.project-card[hidden] {
+  display: none;
+}
+
+.project-filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-filter-button {
+  min-height: 2.75rem;
+  padding: 0.6rem 1rem;
+  color: var(--white);
+  border: 1px solid rgba(255, 253, 248, 0.55);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.project-filter-button:hover {
+  border-color: var(--rust);
+  background: var(--rust);
+  transform: translateY(-0.1rem);
+}
+
+.project-filter-button[aria-pressed="true"] {
+  border-color: var(--rust);
+  background: var(--rust);
+}
+
+.project-filter-status {
+  margin: 0;
+  color: rgba(255, 253, 248, 0.7);
+  font-size: 0.75rem;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

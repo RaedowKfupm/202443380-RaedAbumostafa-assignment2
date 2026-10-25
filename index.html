@@ -98,8 +98,17 @@
             <p>Two explorations at the intersection of machine learning, sensing, and human-centered software.</p>
           </header>
 
+          <div class="project-filters" hidden>
+            <div class="project-filter-controls" role="group" aria-label="Filter projects">
+              <button class="project-filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="project-filter-button" type="button" data-filter="rf-sensing" aria-pressed="false">RF Sensing</button>
+              <button class="project-filter-button" type="button" data-filter="computer-vision" aria-pressed="false">Computer Vision</button>
+            </div>
+            <p class="project-filter-status" role="status" aria-live="polite"></p>
+          </div>
+
           <div class="project-grid">
-            <article class="project-card project-card-rust project-card-wifi">
+            <article class="project-card project-card-rust project-card-wifi" data-category="rf-sensing">
               <div class="project-media">
                 <img
                   src="assets/images/projects/WhatsApp%20Image%202026-09-19%20at%208.19.46%20PM.jpeg"
@@ -135,7 +144,7 @@
               </div>
             </article>
 
-            <article class="project-card project-card-sand">
+            <article class="project-card project-card-sand" data-category="computer-vision">
               <div class="project-media project-media-illustration">
                 <img
                   src="assets/images/projects/image.png"
