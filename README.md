@@ -1,65 +1,63 @@
-# Raed Abumostafa Portfolio
+# Raed Abumostafa — SWE 363 Assignment 2
 
-A responsive personal portfolio for Raed Abumostafa, a software engineering student focused on backend engineering and applied artificial intelligence. The site presents selected projects, technical skills, and a client-side contact form.
+A responsive, single-page portfolio extended for KFUPM SWE 363 Assignment 2. The original portfolio content and visual direction are retained, with project category filtering and more accessible client-side contact-form validation added.
 
-## Features
+## Run locally
 
-- Responsive single-page layout for desktop, tablet, and mobile screens
-- Semantic sections for About, Projects, Skills, and Contact
-- Mobile navigation toggle with accessible `aria-expanded` state
-- Active navigation link based on the section currently in view
-- Project cards with real portfolio images and expandable project details
-- Client-side contact form validation for name, email, and message fields
-- Keyboard focus styles and a skip link for improved accessibility
-- No backend, build step, or external data service required
+No package installation or build step is needed. Open `index.html` in a browser, or start a local static server from the project directory:
 
-## Technologies
-
-- HTML5 for semantic page structure
-- CSS3 for layout, responsive behavior, custom properties, typography, and image framing
-- Vanilla JavaScript for navigation, scroll state, and form validation
-- Local image assets stored under `assets/images`
-
-## Project Structure
-
-```text
-.
-├── assets/
-│   └── images/
-│       ├── profile/
-│       └── projects/
-├── css/
-│   └── styles.css
-├── docs/
-│   ├── ai-usage-report.md
-│   └── technical-documentation.md
-├── js/
-│   └── script.js
-├── index.html
-└── README.md
-```
-
-## Run Locally
-
-No installation is required. Open `index.html` directly in a browser, or use a local static server from the project folder:
-
-```bash
+```powershell
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000/`.
+Then open <http://localhost:8000/>.
 
-## Contact Form
+## Assignment feature mapping
 
-The contact form is intentionally a demonstration. JavaScript validates the fields in the browser, displays accessible error messages, and resets the form after valid input. It does not send or store personal information because this project has no backend.
+| Assignment category | Selected feature | Implementation |
+|---|---|---|
+| Dynamic Content | Project category filtering | Filter the two existing project cards by All, RF Sensing, or Computer Vision. |
+| Data Handling | Validated contact form with confirmation | Validate trimmed input locally, provide correction feedback, and confirm validation without sending or storing data. |
+| Animation and Transitions | Button hover transitions | Reuse the existing button treatment and apply restrained transitions to project filter buttons. |
+| Error Handling and User Feedback | Accessible contact-form validation feedback | Associate field errors with controls, identify invalid fields, focus the first invalid field, and announce the result. |
 
-## Documentation
+The Skills & Expertise cards also have a restrained hover treatment, added after a separate request. This is an additional animation beyond the original one-feature scope; remove it if strict adherence to that scope is required.
 
-- [Technical documentation](docs/technical-documentation.md) explains the architecture, styling, responsiveness, accessibility, and limitations.
-- [AI usage report](docs/ai-usage-report.md) records how AI assistance was used, reviewed, and adapted during development.
+## What changed and what was retained
 
-## Limitations
+The starting workspace already had the editorial portfolio layout and palette, the hero and profile image, About / Projects / Skills / Contact sections, two project cards and their expandable details, responsive navigation, active-section indication, and a local contact form with basic validation.
 
-- The contact form does not deliver messages.
-- Project content and images are static.
-- The page uses system-available font fallbacks and does not bundle a webfont.
+Assignment 2 adds category filters to the existing project cards and improves the existing form’s validation, accessible error associations, focus behavior, and confirmation. Existing project content and images, navigation, disclosures, layout, and form disclosure are retained. Existing button, navigation, card, and image transitions remain; their easing was refined, and the new filter buttons use a matching treatment.
+
+The named Assignment 1 archive was not present in the workspace when work began. The implementation and comparison above therefore use the portfolio already present in this workspace as the starting version.
+
+## Using the interactions
+
+### Project filters
+
+In **Projects**, choose **All**, **RF Sensing**, or **Computer Vision**. The matching existing cards are shown immediately without reloading. The selected button state and a short project count are announced to assistive technology. If JavaScript is unavailable, the controls remain hidden and both cards stay visible.
+
+### Contact form
+
+Enter a name of at least two non-space characters, a valid email address, and a message of at least ten non-space characters, then choose **Validate message**. Invalid fields show correction instructions and keep their values. When all fields are valid, the form confirms that validation succeeded and clears the fields.
+
+**This is a demonstration form. It does not send, store, or log entered information.** A successful confirmation means only that the browser-side checks passed.
+
+## Technology and limitations
+
+- Semantic HTML, CSS, and vanilla JavaScript; no external runtime dependencies.
+- The portfolio content and project cards are static.
+- The contact form has no backend and does not deliver messages.
+- No live deployment URL has been verified.
+
+## AI-use summary
+
+An AI assistant in VS Code was used to inspect, discuss, and help implement the Assignment 2 interactions and documentation. The student directed the scope, reviewed feature behavior, and requested a later Skills-card hover enhancement. The declaration and report remain for the student to review and confirm. See the [AI-use report](docs/ai-usage-report.md) and [technical documentation](docs/technical-documentation.md).
+
+## Project files
+
+- [`index.html`](index.html) — page structure and content
+- [`css/styles.css`](css/styles.css) — theme, layout, responsive rules, and interaction states
+- [`js/script.js`](js/script.js) — navigation, project filters, and form validation
+- [`docs/technical-documentation.md`](docs/technical-documentation.md) — implementation and verification notes
+- [`docs/ai-usage-report.md`](docs/ai-usage-report.md) — AI-use record and declaration for review

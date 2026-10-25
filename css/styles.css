@@ -188,6 +188,11 @@ button {
   cursor: pointer;
 }
 
+.nav-toggle:hover {
+  color: var(--white);
+  background: var(--ink);
+}
+
 .nav-toggle span {
   display: block;
   width: 100%;
@@ -325,11 +330,14 @@ button {
   transition:
     color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
     background-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
     transform 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .button:hover {
-  transform: translateY(-0.15rem);
+  box-shadow: 0 0.35rem 0.8rem rgba(29, 26, 23, 0.18);
+  transform: translateY(-0.2rem);
 }
 
 .button-primary {
@@ -339,8 +347,8 @@ button {
 }
 
 .button-primary:hover {
-  border-color: var(--rust-dark);
-  background: var(--rust-dark);
+  border-color: var(--ink);
+  background: var(--ink);
 }
 
 .button-secondary {
@@ -349,7 +357,8 @@ button {
 
 .button-secondary:hover {
   color: var(--white);
-  background: var(--ink);
+  border-color: var(--rust-dark);
+  background: var(--rust-dark);
 }
 
 .hero-meta {
@@ -507,13 +516,16 @@ section {
     color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
     background-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
     border-color 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 180ms cubic-bezier(0.22, 0.61, 0.36, 1),
     transform 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.project-filter-button:hover {
-  border-color: var(--rust);
-  background: var(--rust);
-  transform: translateY(-0.1rem);
+.project-filter-button[aria-pressed]:hover {
+  color: var(--ink);
+  border-color: var(--white);
+  background: var(--white);
+  box-shadow: 0 0.25rem 0.6rem rgba(0, 0, 0, 0.18);
+  transform: translateY(-0.15rem);
 }
 
 .project-filter-button[aria-pressed="true"] {
@@ -882,7 +894,8 @@ section {
 
 .button-light:hover {
   color: var(--white);
-  background: var(--rust);
+  border-color: var(--rust-dark);
+  background: var(--rust-dark);
 }
 
 .form-note,
