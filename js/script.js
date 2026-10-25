@@ -16,6 +16,15 @@ if (navToggle && navLinks) {
     navToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
+  // Let keyboard users dismiss the mobile menu and return to its button.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navLinks.classList.contains('is-open')) {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }
+  });
+
   navAnchors.forEach((anchor) => {
     anchor.addEventListener('click', () => {
       navLinks.classList.remove('is-open');
